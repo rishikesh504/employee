@@ -79,7 +79,7 @@ const UserList = () => {
     dispatch(deleteUser(user))
   };
 
-  const handleEditingState =() =>{
+  const handleEditingState = () =>{
     setEditingState(!editingState)
   }
 

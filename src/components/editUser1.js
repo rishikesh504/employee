@@ -60,8 +60,11 @@ const [openModel, setOpenModel] = useState(false);
 
   const handleSubmit = (user) => {
     dispatch(updateUser(user))
+
     handleEditingState()
+
     setOpenModel(!openModel)
+
   }
 
 

@@ -21,15 +21,6 @@ const Experience = ({ user,onExperienceDetailsChange, errors }) => {
 
 
 
-  // useEffect(()=>{
-  //   onExperienceDetailsChange({
-  //     ...user,
-  //     experienceList:[...list]
-  //   });
-
-  // },[experienceListState,setExperienceListState])
-
-
   const HandleMore = () => {
  
     var nullexp = experienceListState.find((user) => user.company == ''|| user.role == '');      //checking if experiece fields are exist
@@ -47,12 +38,12 @@ const Experience = ({ user,onExperienceDetailsChange, errors }) => {
   const handleExperienceChange = (e, index) => {
     const { name, value } = e.target;
     const list = [...experienceListState];
-    list[index][name] = value;
+    list[index] = { ...list[index], [name]: value };
     setExperienceListState(list);
-
+  
     onExperienceDetailsChange({
       ...user,
-      experienceList:[...list]
+      experienceList: [...list]
     });
   };
 
@@ -68,8 +59,6 @@ const Experience = ({ user,onExperienceDetailsChange, errors }) => {
     setExperienceListState(prevState => {
       const newList = [...prevState];
       newList.splice(index, 1);
-
-
       onExperienceDetailsChange({
         ...user,
         experienceList: [...newList],
@@ -83,28 +72,29 @@ const Experience = ({ user,onExperienceDetailsChange, errors }) => {
   };
 
 
-  const handleFromDateChange =(index,date) => {
+  const handleFromDateChange = (index, date) => {
     const list = [...experienceListState];
-    list[index]["from"] = new Date(date).toLocaleDateString('en-GB');
+    const formattedDate = new Date(date).toLocaleDateString('en-GB');
+    list[index] = { ...list[index], from: formattedDate };
     setExperienceListState(list);
-    console.log(list[index]["from"])
+  
     onExperienceDetailsChange({
       ...user,
-      experienceList:[...list]
+      experienceList: [...list]
     });
-  }
+  };
 
-  const handleTillDateChange =(index,date) => {
+  const handleTillDateChange = (index, date) => {
     const list = [...experienceListState];
-    list[index]["till"] = new Date(date).toLocaleDateString('en-GB');
-    console.log(list[index]["till"])
+    const formattedDate = new Date(date).toLocaleDateString('en-GB');
+    list[index] = { ...list[index], till: formattedDate };
     setExperienceListState(list);
-
+  
     onExperienceDetailsChange({
       ...user,
-      experienceList:[...list]
+      experienceList: [...list]
     });
-  }
+  };
 
 
 
