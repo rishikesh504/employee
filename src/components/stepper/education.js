@@ -25,7 +25,7 @@ const Education = ({ user,onEducationDetailsChange, errors }) => {
     }
     setTotalNumberOFEducationState(prevState => [...prevState, prevState.length + 1])
     const newList = [...educationListState];
-    newList.push({college:'',percentage:'',year:''})
+    newList.unshift({college:'',percentage:'',from:'',till:''})
     setEducationListState(newList)
   }
 
@@ -96,10 +96,10 @@ const Education = ({ user,onEducationDetailsChange, errors }) => {
   return (
     <div>
     {educationListState.map((item, index) => (
-         <Card key={index} sx={{ boxShadow: 2, backgroundColor: 'white', border: 1, borderColor: 'grey.400', borderRadius: '16px', my: 2 }}>
+         <Card key={index} sx={{ boxShadow: 2, backgroundColor: 'white', border: 1, borderColor: 'grey.400', borderRadius: '16px', my: 1 }}>
+            <span style={{display:'flex' ,justifyContent:"space-between",alignItems:"center", padding:'10px 5px'}}><h2>Education {index+1}</h2>   <DeleteIcon onClick={()=>handleDeleteEducation(index)} style={{color:'red',cursor:'pointer'}}/> </span>
          <Box p={1}>
       <div key={index}>
-        <span style={{display:'flex' ,justifyContent:"space-between",alignItems:"center"}}><h2>Education {index+1}</h2>   <DeleteIcon onClick={()=>handleDeleteEducation(index)} style={{color:'red',cursor:'pointer'}}/> </span>
         <TextField
           margin="dense"
           label="COLLEGE NAME"

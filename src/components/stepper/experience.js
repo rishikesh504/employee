@@ -9,6 +9,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import { motion } from 'framer-motion';
 import moment from 'moment';
+import { maxHeight } from '@mui/system';
 
 
 const Experience = ({ user,onExperienceDetailsChange, errors }) => {
@@ -48,6 +49,8 @@ const Experience = ({ user,onExperienceDetailsChange, errors }) => {
 
 
   const handleDeleteExperience = (index) => {
+   
+
     
     setTotalNumberOFExperienceState(prevState => {
       const newState = [...prevState];
@@ -100,11 +103,11 @@ const Experience = ({ user,onExperienceDetailsChange, errors }) => {
 
   return (
     <div>
-    {experienceListState.map((item, index) => (
+    {experienceListState.length > 0 ? experienceListState.map((item, index) => (
          <Card key={index} sx={{ boxShadow: 2, backgroundColor: 'white', border: 1, borderColor: 'grey.400', borderRadius: '16px', my: 2 }}>
-         <Box p={1}>
+         <Box p={2.5}>
       <div key={index}>
-        <span style={{display:'flex' ,justifyContent:"space-between",alignItems:"center"}}><h2>Experience {index+1}</h2> 
+        <span style={{display:'flex' ,justifyContent:"space-between",alignItems:"center" }}><h2> {item.role || `Experience${index+1}`} </h2> 
           <DeleteIcon onClick={()=>handleDeleteExperience(index)} style={{color:'red',cursor:'pointer'}}/>
      
          </span>
@@ -132,7 +135,7 @@ const Experience = ({ user,onExperienceDetailsChange, errors }) => {
 
         <div style={{display:'flex', marginBottom:'10px',marginTop:'5px', justifyContent:'space-between'}}>
 
-
+          <div style={{width:'46%'}}>
           <LocalizationProvider dateAdapter={AdapterMoment}>
             <DatePicker
               label="FROM"
@@ -140,9 +143,11 @@ const Experience = ({ user,onExperienceDetailsChange, errors }) => {
               value={new Date(item.from).toLocaleDateString('en-US')}
               inputFormat="DD-MM-YYYY"
               onChange={(date) => handleFromDateChange(index,date)}
-              renderInput={(params) => <TextField {...params} name="from" />}
+              renderInput={(params) => <TextField {...params} name="from" error={false} />}
             />
           </LocalizationProvider>
+          </div>
+          <div style={{width:'46%'}}>
           <LocalizationProvider dateAdapter={AdapterMoment}>
             <DatePicker
               label="TILL"
@@ -151,10 +156,10 @@ const Experience = ({ user,onExperienceDetailsChange, errors }) => {
               minDate={moment(new Date(item.from).toLocaleDateString('en-US')).toDate()}
               maxDate={new Date()}
               onChange={(date) => handleTillDateChange(index,date)}
-              renderInput={(params) => <TextField {...params} name="till" />}
+              renderInput={(params) => <TextField {...params} name="till" error={false}/>}
             />
           </LocalizationProvider>
-
+          </div>
 
 
         </div>
@@ -162,10 +167,13 @@ const Experience = ({ user,onExperienceDetailsChange, errors }) => {
       </div>
       </Box>
       </Card>
-    ))}
+    )) : 
+    <Card sx={{ boxShadow: 2, backgroundColor: 'white', border: 1, borderColor: 'grey.400', borderRadius: '16px', my: 2 }}>
+    <img style={{objectFit:'contain',maxHeight:'400px',width:'100%'}} src="https://cdn6.aptoide.com/imgs/9/e/a/9ead0af21d71e98d61270009d3cbdcf3_icon.png" alt="thank you"/>
+   </Card> } 
              {errors && errors.experience && <p style={{color:'red'}}>{errors.experience}</p> }
     <div style={{display:'flex',justifyContent:'center'}} >
-        <AddCircleOutlineIcon style={{color:'blue',cursor:'pointer'}} onClick={HandleMore}/>    
+        <AddCircleOutlineIcon style={{color:'blue',cursor:'pointer',height:'35px' }} onClick={HandleMore}/>    
         </div>
   </div>
   )

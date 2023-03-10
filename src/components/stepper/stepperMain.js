@@ -67,8 +67,8 @@ const StepperForm = ({ handleSubmit,openModel,setOpenModel,user,setUser,editingS
         <Dialog open={openModel} onClose={handleClose} fullWidth maxWidth="sm">
         <DialogTitle>{editingState ? "Edit User" :"Add User" }</DialogTitle>
         <DialogContent>
-         <Box sx={{ width: '100%' }}>
-     
+         <Box sx={{ width: '100%' , maxHeight:'550px',minHeight:'550px' }}>
+          <div style={{marginBottom:'10px'}}>
          <Stepper activeStep={activeStep}>
               {steps.map((label, index) => {
                 const stepProps = {};
@@ -80,8 +80,9 @@ const StepperForm = ({ handleSubmit,openModel,setOpenModel,user,setUser,editingS
                 );
               })}
             </Stepper>
-            {/* <AnimatePresence wait>
-            <motion.div key={activeStep} initial={{ x:100 }} animate={{ x: 0 }} exit={{ x:-100 }} transition={{duration:0.5}}> */}
+            </div>
+            <AnimatePresence wait>
+            <motion.div key={activeStep} initial={{ x:200 ,y:0 }} animate={{ x: 0 }} exit={{ opacity:0 ,transition:{duration:0.2} }} transition={{delay :0.3 ,duration:0.5}}>
         {activeStep === 0 && (
           <PersonalStepper   user={user}
           onPersonalDetailsChange={handleUserDetailsChange} errors={errors} />
@@ -99,8 +100,8 @@ const StepperForm = ({ handleSubmit,openModel,setOpenModel,user,setUser,editingS
          {activeStep === 4 && (
           <Endpage />
         )}
-        {/* </motion.div>
-        </AnimatePresence> */}
+        </motion.div>
+        </AnimatePresence>
         
               
         </Box>

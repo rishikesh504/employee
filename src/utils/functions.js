@@ -51,9 +51,9 @@ export function validateUser (user, step)  {
       if (!user.personalDetails.address1) {
         errors.address1= "Address1 is required";
       }
-      if (!user.personalDetails.address2) {
-        errors.address2= "Address2 is required";
-      }
+      // if (!user.personalDetails.address2) {
+      //   errors.address2= "Address2 is required";
+      // }
       if (!user.personalDetails.dateofbirth) {
       
         errors.dateofbirth= "Dateofbirth is required";
