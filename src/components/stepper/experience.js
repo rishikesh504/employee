@@ -15,8 +15,7 @@ const Experience = ({ user,onExperienceDetailsChange, errors }) => {
 
   const [totalNumberOfExperienceState, setTotalNumberOFExperienceState] = useState([user.experienceList.length]);
   const [experienceListState,setExperienceListState] = useState(user.experienceList)
-  const [valueFrom, setValueFrom] = useState(null);
-  const [valueTill, setValueTill] = useState(null);
+
 
 
 

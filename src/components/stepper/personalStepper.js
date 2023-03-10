@@ -98,10 +98,11 @@ const PersonalStepper = ({ user, onPersonalDetailsChange,errors }) => {
         onChange={(e) => handleChange(e)}
 
       /> */}
-      
+      <div style={{width:'42%',marginTop:'10px'}}>
       <LocalizationProvider dateAdapter={AdapterMoment}>
             <DatePicker
               margin="dense"
+              h
               label="Date Of Birth"
               value={personalDetailsState.dateofbirth}
               onChange={handleDateChange}
@@ -112,6 +113,7 @@ const PersonalStepper = ({ user, onPersonalDetailsChange,errors }) => {
               // helperText={errors.dateofbirth && errors.dateofbirth}
             />
           </LocalizationProvider>
+          </div>
       </div>
       <div style={{display:'flex',justifyContent:'space-between'}}>
       <TextField

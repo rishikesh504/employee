@@ -1,12 +1,12 @@
 import './App.css';
-import AddUser from './components/addUser.js/addUser';
 import UserList from './components/userList/userList';
 import { motion } from 'framer-motion';
+import { FC } from 'react'
 import Page from './components/startPage/startpage';
 import { useSelector } from 'react-redux';
 
 
-function App() {
+const App = () => { 
   const noofUsers = useSelector(state=>state.users.length)
 
 

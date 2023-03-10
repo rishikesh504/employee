@@ -6,6 +6,7 @@ import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import Typography from '@mui/material/Typography';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import DeleteIcon from '@mui/icons-material/Delete';
+import moment from 'moment';
 
 const Education = ({ user,onEducationDetailsChange, errors }) => {
 
@@ -62,6 +63,33 @@ const Education = ({ user,onEducationDetailsChange, errors }) => {
 
   };
 
+  const handleFromDateChange = (index, date) => {
+    const list = [...educationListState];
+    const formattedDate = new Date(date).toLocaleDateString('en-GB');
+    list[index] = { ...list[index], from: formattedDate };
+    setEducationListState(list);
+  
+    onEducationDetailsChange({
+      ...user,
+      experienceList: [...list]
+    });
+  };
+
+  const handleTillDateChange = (index, date) => {
+    const list = [...educationListState];
+    const formattedDate = new Date(date).toLocaleDateString('en-GB');
+    list[index] = { ...list[index], till: formattedDate };
+    setEducationListState(list);
+  
+    onEducationDetailsChange({
+      ...user,
+      educationList: [...list]
+    });
+  };
+
+
+  
+
 
 
 
@@ -98,24 +126,24 @@ const Education = ({ user,onEducationDetailsChange, errors }) => {
 
 
           <LocalizationProvider dateAdapter={AdapterMoment}>
-            <DatePicker
+          <DatePicker
               label="FROM"
-              name="dateofbirth"
-              value={valueFrom}
-              onChange={(newValue) => {
-                setValueFrom(newValue);
-              }}
-              renderInput={(params) => <TextField {...params} />}
+              maxDate={new Date()}
+              value={item.from}
+              inputFormat="DD-MM-YYYY"
+              onChange={(date) => handleFromDateChange(index,date)}
+              renderInput={(params) => <TextField {...params}name="from" />}
             />
           </LocalizationProvider>
           <LocalizationProvider dateAdapter={AdapterMoment}>
-            <DatePicker
+          <DatePicker
               label="TILL"
-              value={valueTill}
-              onChange={(newValue) => {
-                setValueTill(newValue);
-              }}
-              renderInput={(params) => <TextField {...params} />}
+              value={item.till}
+              inputFormat="DD-MM-YYYY"
+              minDate={moment(item.from).toDate()}
+              maxDate={new Date()}
+              onChange={(date) => handleTillDateChange(index,date)}
+              renderInput={(params) => <TextField {...params} name="till" />}
             />
           </LocalizationProvider>
 

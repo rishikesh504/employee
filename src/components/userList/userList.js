@@ -55,7 +55,7 @@ const StyledTable = styled(Table)({
 
 
 const UserList = () => {
-  console.log("in user list")
+
   const dispatch = useDispatch()
   const totalusers = useSelector(state=>state.users)
   const [editUser, setEditUser] = useState(null);
