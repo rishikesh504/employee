@@ -1,4 +1,4 @@
-import { TextField, Button } from '@mui/material';
+import { TextField, Button,MenuItem,Select } from '@mui/material';
 import { useState } from 'react';
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -76,17 +76,24 @@ const PersonalStepper = ({ user, onPersonalDetailsChange,errors }) => {
         required
       />
       <div style={{display:'flex',justifyContent:'space-between'}}>
-      <TextField
-        margin="dense"
-        label="gender"
-        type="text"
-        error={errors.gender}
-        helperText={errors.gender && errors.gender}
-        value={personalDetailsState.gender}
-        name="gender"
-        onChange={(e) => handleChange(e)}
-        required
-      />
+      <div style={{width:'42%',marginTop:'10px'}}>
+      <Select
+          margin="dense"
+          label="Gender"
+          value={personalDetailsState.gender}
+          placeholder="please Select Gender"
+          name="gender"
+          onChange={(e) => handleChange(e)}
+          required
+          fullWidth
+          error={errors.gender}
+   
+        >
+          <MenuItem  value={"male"}>Male</MenuItem>
+          <MenuItem value={"female"}>Female</MenuItem>
+          <MenuItem value={"other"}>Other</MenuItem>
+        </Select>
+      </div>
 
 {/* <TextField
         margin="dense"

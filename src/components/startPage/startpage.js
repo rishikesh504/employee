@@ -6,6 +6,8 @@ import AddUser1 from '../addUser.js/adduser1';
 
 function Page() {
   return (
+    
+  
     <div className="main">
       {/* <Logo className="logo" /> */}
       <Typography variant="h4" component="h1" className="heading">
@@ -13,6 +15,7 @@ function Page() {
       </Typography>
       <AddUser1/>
     </div>
+   
   );
 }
 

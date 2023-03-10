@@ -21,3 +21,17 @@
   .button {
     margin-top: 24px;
   }
+
+  .Top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .image {
+    filter: blur(2px);
+  -webkit-filter: blur(2px);
+  height: 100vh;
+
+  }

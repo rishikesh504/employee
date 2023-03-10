@@ -115,8 +115,8 @@ const UserList = () => {
           <StyledTableHeaderCell animate={{x:0}} initial={{x:-100, }} transition={{duration:1.2}} >Name</StyledTableHeaderCell>
             <StyledTableHeaderCell  >Email</StyledTableHeaderCell>
             <StyledTableHeaderCell >Mobile</StyledTableHeaderCell>
+            <StyledTableHeaderCell >Gender</StyledTableHeaderCell>
             <StyledTableHeaderCell >Country</StyledTableHeaderCell>
-            <StyledTableHeaderCell >State</StyledTableHeaderCell>
             <StyledTableHeaderCell >Pincode</StyledTableHeaderCell>
             <StyledTableHeaderCell animate={{x:0}} initial={{x:100}} transition={{duration:1.2}} >Actions</StyledTableHeaderCell>
           </StyledTableRow>
@@ -132,8 +132,8 @@ const UserList = () => {
             <StyledTableBodyCell style={{fontWeight:'bold' }}>{user.personalDetails.name}</StyledTableBodyCell>
               <StyledTableBodyCell>{user.personalDetails.email}</StyledTableBodyCell>
               <StyledTableBodyCell>{user.personalDetails.phone}</StyledTableBodyCell>
+              <StyledTableBodyCell>{user.personalDetails.gender}</StyledTableBodyCell>
               <StyledTableBodyCell>{user.personalDetails.country}</StyledTableBodyCell>
-              <StyledTableBodyCell>{user.personalDetails.state}</StyledTableBodyCell>
               <StyledTableBodyCell>{user.personalDetails.pincode}</StyledTableBodyCell>
               <StyledTableBodyCell >
                 <div style={{display:'flex' , justifyContent:'center' }}>

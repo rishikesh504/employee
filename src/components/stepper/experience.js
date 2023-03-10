@@ -137,18 +137,18 @@ const Experience = ({ user,onExperienceDetailsChange, errors }) => {
             <DatePicker
               label="FROM"
               maxDate={new Date()}
-              value={item.from}
+              value={new Date(item.from).toLocaleDateString('en-US')}
               inputFormat="DD-MM-YYYY"
               onChange={(date) => handleFromDateChange(index,date)}
-              renderInput={(params) => <TextField {...params}name="from" />}
+              renderInput={(params) => <TextField {...params} name="from" />}
             />
           </LocalizationProvider>
           <LocalizationProvider dateAdapter={AdapterMoment}>
             <DatePicker
               label="TILL"
-              value={item.till}
+              value={new Date(item.till).toLocaleDateString('en-US')}
               inputFormat="DD-MM-YYYY"
-              minDate={moment(item.from).toDate()}
+              minDate={moment(new Date(item.from).toLocaleDateString('en-US')).toDate()}
               maxDate={new Date()}
               onChange={(date) => handleTillDateChange(index,date)}
               renderInput={(params) => <TextField {...params} name="till" />}
@@ -163,6 +163,7 @@ const Experience = ({ user,onExperienceDetailsChange, errors }) => {
       </Box>
       </Card>
     ))}
+             {errors && errors.experience && <p style={{color:'red'}}>{errors.experience}</p> }
     <div style={{display:'flex',justifyContent:'center'}} >
         <AddCircleOutlineIcon style={{color:'blue',cursor:'pointer'}} onClick={HandleMore}/>    
         </div>

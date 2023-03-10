@@ -15,7 +15,7 @@ const maxId = users.length > 0 ? Math.max(...users.map(user => user.id)) : 0;
       personalDetails: {
         name: '',
         email: '',
-        gender: '',
+        gender: 'male',
         phone: '',
         address1: '',
         address2: '',
@@ -32,9 +32,9 @@ const maxId = users.length > 0 ? Math.max(...users.map(user => user.id)) : 0;
         bankaccountnumber: '',
         ifsc: ''
       },
-      experienceList: [{ company: '', role: '', year: '',from:'',till:'' }],
+      experienceList: [{ company: '', role: '', from:'',till:'' }],
     
-      educationList: [{ college: '', percentage: '', year: '', till:'' }],
+      educationList: [{ college: '', percentage: '', from: '', till:'' }],
   
 
     }
@@ -63,7 +63,7 @@ const [openModel, setOpenModel] = useState(false);
       personalDetails: {
         name: '',
         email: '',
-        gender: '',
+        gender: 'male',
         phone: '',
         address1: '',
         address2: '',

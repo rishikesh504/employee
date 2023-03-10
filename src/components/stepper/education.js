@@ -102,7 +102,7 @@ const Education = ({ user,onEducationDetailsChange, errors }) => {
         <span style={{display:'flex' ,justifyContent:"space-between",alignItems:"center"}}><h2>Education {index+1}</h2>   <DeleteIcon onClick={()=>handleDeleteEducation(index)} style={{color:'red',cursor:'pointer'}}/> </span>
         <TextField
           margin="dense"
-          label="College NAME"
+          label="COLLEGE NAME"
           type="text"
           id={`${index}`}
           name="college"
@@ -129,7 +129,7 @@ const Education = ({ user,onEducationDetailsChange, errors }) => {
           <DatePicker
               label="FROM"
               maxDate={new Date()}
-              value={item.from}
+              value={new Date(item.from).toLocaleDateString('en-US')}
               inputFormat="DD-MM-YYYY"
               onChange={(date) => handleFromDateChange(index,date)}
               renderInput={(params) => <TextField {...params}name="from" />}
@@ -138,7 +138,7 @@ const Education = ({ user,onEducationDetailsChange, errors }) => {
           <LocalizationProvider dateAdapter={AdapterMoment}>
           <DatePicker
               label="TILL"
-              value={item.till}
+              value={new Date(item.till).toLocaleDateString('en-US')}
               inputFormat="DD-MM-YYYY"
               minDate={moment(item.from).toDate()}
               maxDate={new Date()}
@@ -154,6 +154,7 @@ const Education = ({ user,onEducationDetailsChange, errors }) => {
       </Box>
       </Card>
     ))}
+    {errors && errors.education && <p style={{color:'red'}}>{errors.education}</p> }
     <div style={{display:'flex',justifyContent:'center'}} >
         <AddCircleOutlineIcon style={{color:'blue',cursor:'pointer'}} onClick={HandleMore}/>    
         </div>
