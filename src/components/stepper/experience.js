@@ -104,7 +104,7 @@ const Experience = ({ user,onExperienceDetailsChange, errors }) => {
   return (
     <div>
     {experienceListState.length > 0 ? experienceListState.map((item, index) => (
-         <Card key={index} sx={{ boxShadow: 2, backgroundColor: 'white', border: 1, borderColor: 'grey.400', borderRadius: '16px', my: 2 }}>
+         <Card key={index} sx={{ boxShadow: 1, backgroundColor: 'white', border: 1, borderColor: 'grey.400', borderRadius: '16px', my: 2 }}>
          <Box p={2.5}>
       <div key={index}>
         <span style={{display:'flex' ,justifyContent:"space-between",alignItems:"center" }}><h2> {item.role || `Experience${index+1}`} </h2> 

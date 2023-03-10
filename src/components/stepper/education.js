@@ -25,7 +25,7 @@ const Education = ({ user,onEducationDetailsChange, errors }) => {
     }
     setTotalNumberOFEducationState(prevState => [...prevState, prevState.length + 1])
     const newList = [...educationListState];
-    newList.unshift({college:'',percentage:'',from:'',till:''})
+    newList.push({college:'',percentage:'',from:'',till:''})
     setEducationListState(newList)
   }
 
@@ -42,6 +42,7 @@ const Education = ({ user,onEducationDetailsChange, errors }) => {
   };
 
   const handleDeleteEducation = (index) => {
+    
     setTotalNumberOFEducationState(prevState => {
       const newState = [...prevState];
       newState.splice(index, 1);
@@ -96,13 +97,15 @@ const Education = ({ user,onEducationDetailsChange, errors }) => {
   return (
     <div>
     {educationListState.map((item, index) => (
-         <Card key={index} sx={{ boxShadow: 2, backgroundColor: 'white', border: 1, borderColor: 'grey.400', borderRadius: '16px', my: 1 }}>
-            <span style={{display:'flex' ,justifyContent:"space-between",alignItems:"center", padding:'10px 5px'}}><h2>Education {index+1}</h2>   <DeleteIcon onClick={()=>handleDeleteEducation(index)} style={{color:'red',cursor:'pointer'}}/> </span>
-         <Box p={1}>
+            <Card key={index} sx={{ boxShadow: 1, backgroundColor: 'white', border: 1, borderColor: 'grey.400', borderRadius: '16px', my: 2 }}>
+         <Box p={2.5}>
       <div key={index}>
+      <span style={{display:'flex' ,justifyContent:"space-between",alignItems:"center" }}><h2> {item.role || `Education${index+1}`} </h2> 
+          <DeleteIcon onClick={()=>handleDeleteEducation(index)} style={{color:'red',cursor:'pointer'}}/>
+         </span>
         <TextField
           margin="dense"
-          label="COLLEGE NAME"
+          label="COLLEGE/INSTITTUTE"
           type="text"
           id={`${index}`}
           name="college"
@@ -125,31 +128,37 @@ const Education = ({ user,onEducationDetailsChange, errors }) => {
         <div style={{display:'flex',justifyContent:'space-between'}}>
 
 
+        <div style={{display:'flex', marginBottom:'10px',marginTop:'5px', justifyContent:'space-between'}}>
+
+          <div style={{width:'46%'}}>
           <LocalizationProvider dateAdapter={AdapterMoment}>
-          <DatePicker
+            <DatePicker
               label="FROM"
               maxDate={new Date()}
               value={new Date(item.from).toLocaleDateString('en-US')}
               inputFormat="DD-MM-YYYY"
               onChange={(date) => handleFromDateChange(index,date)}
-              renderInput={(params) => <TextField {...params}name="from" />}
+              renderInput={(params) => <TextField {...params} name="from" error={false} />}
             />
           </LocalizationProvider>
+          </div>
+          <div style={{width:'46%'}}>
           <LocalizationProvider dateAdapter={AdapterMoment}>
-          <DatePicker
+            <DatePicker
               label="TILL"
               value={new Date(item.till).toLocaleDateString('en-US')}
               inputFormat="DD-MM-YYYY"
-              minDate={moment(item.from).toDate()}
+              minDate={moment(new Date(item.from).toLocaleDateString('en-US')).toDate()}
               maxDate={new Date()}
               onChange={(date) => handleTillDateChange(index,date)}
-              renderInput={(params) => <TextField {...params} name="till" />}
+              renderInput={(params) => <TextField {...params} name="till" error={false}/>}
             />
           </LocalizationProvider>
-
+          </div>
 
 
         </div>
+      </div>
       </div>
       </Box>
       </Card>

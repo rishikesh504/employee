@@ -27,30 +27,6 @@ const BankDetails = ({ user, onBankDetailsChange, errors }) => {
     <div>
       <TextField
         margin="dense"
-        label="Pan"
-        type="text"
-        value={bankDetailsState.pan}
-        name="pan"
-        error={errors.pan} helperText={errors.pan}
-        onChange={handleChange}
-        fullWidth
-
-
-      />
-
-      <TextField
-        margin="dense"
-        label="Aadhaar"
-        type="text"
-        value={bankDetailsState.aadhaar}
-        name="aadhaar"
-        error={errors.aadhaar} helperText={errors.aadhaar}
-        onChange={handleChange}
-        fullWidth
-
-      />
-      <TextField
-        margin="dense"
         label="Bank Name"
         type="text"
         value={bankDetailsState.bankname}
@@ -73,7 +49,7 @@ const BankDetails = ({ user, onBankDetailsChange, errors }) => {
       />
       <TextField
         margin="dense"
-        label="Ifsc"
+        label="IFSC"
         type="text"
         value={bankDetailsState.ifsc}
         name="ifsc"
@@ -82,6 +58,34 @@ const BankDetails = ({ user, onBankDetailsChange, errors }) => {
         fullWidth
 
       />
+
+
+
+      <TextField
+        margin="dense"
+        label="Pan"
+        type="text"
+        value={bankDetailsState.pan}
+        name="pan"
+        error={errors.pan} helperText={errors.pan}
+        onChange={handleChange}
+        fullWidth
+
+
+      />
+
+      <TextField
+        margin="dense"
+        label="Aadhaar"
+        type="text"
+        value={bankDetailsState.aadhaar}
+        name="aadhaar"
+        error={errors.aadhaar} helperText={errors.aadhaar}
+        onChange={handleChange}
+        fullWidth
+
+      />
+
 
     </div>
   );

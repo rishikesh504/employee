@@ -7,6 +7,7 @@ import { motion } from "framer-motion"
 import { styled } from '@mui/material/styles';
 import { useSelector } from "react-redux"
 import EditIcon from '@mui/icons-material/Edit';
+import { validateUser } from "../utils/functions"
 
 const  Edituser1 = ({editUser,handleEditUser,editingState,handleEditingState}) => {
   const [user, setUser] = useState(

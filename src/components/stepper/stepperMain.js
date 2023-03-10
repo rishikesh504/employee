@@ -36,7 +36,6 @@ const StepperForm = ({ handleSubmit,openModel,setOpenModel,user,setUser,editingS
 
     const handleNext = () => {
       const validationErrors = validateUser(user, activeStep);
-
       if (Object.keys(validationErrors).length === 0) {
         setErrors({});
         if (activeStep === 0) {
@@ -81,8 +80,8 @@ const StepperForm = ({ handleSubmit,openModel,setOpenModel,user,setUser,editingS
               })}
             </Stepper>
             </div>
-            <AnimatePresence wait>
-            <motion.div key={activeStep} initial={{ x:200 ,y:0 }} animate={{ x: 0 }} exit={{ opacity:0 ,transition:{duration:0.2} }} transition={{delay :0.3 ,duration:0.5}}>
+            <AnimatePresence wait >
+            <motion.div key={activeStep} initial={{ opacity:0 }} animate={{ opacity:1 }} exit={{ opacity:0 ,transition:{duration:0.2} }} transition={{delay :0.3 ,duration:0.5}}>
         {activeStep === 0 && (
           <PersonalStepper   user={user}
           onPersonalDetailsChange={handleUserDetailsChange} errors={errors} />
