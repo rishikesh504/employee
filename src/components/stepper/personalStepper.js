@@ -61,6 +61,7 @@ const PersonalStepper = ({ user, onPersonalDetailsChange,errors }) => {
         helperText={errors.email && errors.email}
         onChange={(e) => handleChange(e)}
         fullWidth
+        required
       />
       <TextField
         margin="dense"
@@ -72,6 +73,7 @@ const PersonalStepper = ({ user, onPersonalDetailsChange,errors }) => {
         name="phone"
         onChange={(e) => handleChange(e)}
         fullWidth
+        required
       />
       <div style={{display:'flex',justifyContent:'space-between'}}>
       <TextField
@@ -83,7 +85,7 @@ const PersonalStepper = ({ user, onPersonalDetailsChange,errors }) => {
         value={personalDetailsState.gender}
         name="gender"
         onChange={(e) => handleChange(e)}
-
+        required
       />
 
 {/* <TextField
@@ -102,15 +104,14 @@ const PersonalStepper = ({ user, onPersonalDetailsChange,errors }) => {
       <LocalizationProvider dateAdapter={AdapterMoment}>
             <DatePicker
               margin="dense"
-              h
               label="Date Of Birth"
               value={personalDetailsState.dateofbirth}
               onChange={handleDateChange}
               maxDate={new Date()}
               format="DD-MM-YYYY"
-              renderInput={(params) => <TextField {...params} name ="datofbirth" />}
-              // error={errors.dateofbirth}
-              // helperText={errors.dateofbirth && errors.dateofbirth}
+              renderInput={(params) => <TextField {...params} name ="datofbirth"  error={errors.dateofbirth}
+              helperText={errors.dateofbirth && errors.dateofbirth} />}
+             
             />
           </LocalizationProvider>
           </div>
@@ -125,6 +126,7 @@ const PersonalStepper = ({ user, onPersonalDetailsChange,errors }) => {
         value={personalDetailsState.address1}
         name="address1"
         onChange={(e) => handleChange(e)}
+        required
 
       />
          <TextField
@@ -136,7 +138,7 @@ const PersonalStepper = ({ user, onPersonalDetailsChange,errors }) => {
         value={personalDetailsState.address2}
         name="address2"
         onChange={(e) => handleChange(e)}
-
+        required
       />
       </div>
 
@@ -150,7 +152,7 @@ const PersonalStepper = ({ user, onPersonalDetailsChange,errors }) => {
         helperText={errors.city && errors.city}
         name="city"
         onChange={(e) => handleChange(e)}
-
+        required
       />
          <TextField
         margin="dense"
@@ -161,7 +163,7 @@ const PersonalStepper = ({ user, onPersonalDetailsChange,errors }) => {
         value={personalDetailsState.state}
         name="state"
         onChange={(e) => handleChange(e)}
-
+        required
       />
       </div>   
       <div style={{display:'flex',justifyContent:'space-between'}}>
@@ -174,7 +176,7 @@ const PersonalStepper = ({ user, onPersonalDetailsChange,errors }) => {
         value={personalDetailsState.country}
         name="country"
         onChange={(e) => handleChange(e)}
-
+        required
       />
          <TextField
         margin="dense"

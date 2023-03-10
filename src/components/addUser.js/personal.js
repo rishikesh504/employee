@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Dialog, DialogTitle, DialogContent, TextField, Button } from '@mui/material';
 
 const PersonalDetails = ({name,onChangeName,nameError,nameErrorMsg}) => {
-    console.log(nameError,nameErrorMsg)
+
     // const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [mobile, setMobile] = useState('')

@@ -19,7 +19,7 @@ const Education = ({ user,onEducationDetailsChange, errors }) => {
   const HandleMore = () => {
     var nullexp = educationListState.find((user) => user.college == ''|| user.percentage == '');      //checking if experiece fields are exist
     if (nullexp) {
-      console.log("here2")
+
       alert("please fill all current education fields then add new one")
       return;
     }

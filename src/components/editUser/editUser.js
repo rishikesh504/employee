@@ -89,18 +89,17 @@ const Editmodel = ({ open, onClose, onSubmit, initialValue }) => {
   }
 
   const HandleMore = () => {
-    console.log("here1")
-    console.log(experienceList)
+
     var nullexp = experienceList.find((user) => user.company == ''|| user.role == '');      //checking if experiece fields are exist
     if (nullexp) {
-      console.log("here2")
+
       alert("please fill all current experience fields then add new one")
       return;
     }
     setTotalNumberOFExperience(prevState => [...prevState, prevState.length + 1])
     const newList = [...experienceList];
     newList.push({company:'',role:'',year:''})
-    setExperienceList(newList)
+    setExperienceList(newList) 
   }
 
 
@@ -129,14 +128,14 @@ const Editmodel = ({ open, onClose, onSubmit, initialValue }) => {
   const handleDeleteExperience = (index) => {
     const list = [...experienceList];
     list.splice(index, 1);
-    console.log(list)
+  
     setTotalNumberOFExperience(prevState => {
       const newState = [...prevState]
       newState.splice(index,1)
       return newState
     })
     setExperienceList(list);
-    console.log(experienceList)
+
   };
 
 

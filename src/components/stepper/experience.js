@@ -24,7 +24,7 @@ const Experience = ({ user,onExperienceDetailsChange, errors }) => {
  
     var nullexp = experienceListState.find((user) => user.company == ''|| user.role == '');      //checking if experiece fields are exist
     if (nullexp) {
-      console.log("here2")
+
       alert("please fill all current experience fields then add new one")
       return;
     }

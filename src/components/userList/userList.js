@@ -129,7 +129,7 @@ const UserList = () => {
           ).map((user,index) => (
            
             <StyledTableRow1  animate={{x:0,background:'transparent'}} initial={{x:-100 ,background:'green'}} exit={{x:-100 ,background:'red', transition:{duration:0.5}}} transition={{duration:1.2,delay:0.5}}  key={index} >
-            <StyledTableBodyCell style={{fontWeight:'bold' }}>{user.id}</StyledTableBodyCell>
+            <StyledTableBodyCell style={{fontWeight:'bold' }}>{user.personalDetails.name}</StyledTableBodyCell>
               <StyledTableBodyCell>{user.personalDetails.email}</StyledTableBodyCell>
               <StyledTableBodyCell>{user.personalDetails.phone}</StyledTableBodyCell>
               <StyledTableBodyCell>{user.personalDetails.country}</StyledTableBodyCell>

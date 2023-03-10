@@ -36,7 +36,7 @@ const StepperForm = ({ handleSubmit,openModel,setOpenModel,user,setUser,editingS
 
     const handleNext = () => {
       const validationErrors = validateUser(user, activeStep);
-      console.log(validationErrors);
+
       if (Object.keys(validationErrors).length === 0) {
         setErrors({});
         if (activeStep === 0) {

@@ -34,7 +34,7 @@ function EducationForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(educationList);
+  
   };
 
   return (

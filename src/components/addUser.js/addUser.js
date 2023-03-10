@@ -68,11 +68,10 @@ const AddUser = () => {
     setOpenModel(false)
   }
   const HandleMore = () => {
-    console.log("here1")
-    console.log(experienceList)
+    
     var nullexp = experienceList.find((user) => user.company == ''|| user.role == '');      //checking if experiece fields are exist
     if (nullexp) {
-      console.log("here2")
+     
       alert("please fill all current experience fields then add new one")
       return;
     }
@@ -117,7 +116,7 @@ const AddUser = () => {
   };
 
   const HandleReduce = (indexToremove) => {
-    console.log(indexToremove);
+
     // setTotalNumberOFExperience(prevState => prevState.filter((item, index) => index !== indexToremove))
     setTotalNumberOFExperience(prevState => {
       const newState = [...prevState]
